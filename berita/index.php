@@ -1,30 +1,28 @@
 <?php
 
-function http_request($url){
-    // persiapkan curl
-    $ch = curl_init(); 
-
-    // set url 
-    curl_setopt($ch, CURLOPT_URL, $url);
-    
-    // set user agent    
-    curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-
-    // return the transfer as a string 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-
-    // $output contains the output string 
-    $output = curl_exec($ch); 
-
-    // tutup curl 
-    curl_close($ch);      
-
-    // mengembalikan hasil curl
-    return $output;
-}
-
-$profile = http_request("http://localhost/graber/kiblat_news.php");
-
-// $profile = json_decode($profile, TRUE);
-
-echo $profile;
+$url = 'http://localhost/graber/kiblat_news.php';
+//create a new cURL resource
+$ch = curl_init($url);
+//setup request to send json via POST
+// $data = array(
+//     'username' => 'jurnalweb',
+//     'password' => 'password123456'
+// );
+// $payload = json_encode(array("user" => $data));
+// //attach encoded JSON string to the POST fields
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+//set the content type to application/json
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+//return response instead of outputting
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//execute the POST request
+$result = curl_exec($ch);
+//close cURL resource
+curl_close($ch);
+//Output response
+// echo "<pre>$result</pre>";
+print_r($result);
+//get response
+$data = json_decode(file_get_contents('php://input'), true);
+//output response
+echo '<pre>'.$data.'</pre>';

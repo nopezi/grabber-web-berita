@@ -2,7 +2,7 @@
 
 require_once 'simple-parse/simple_html_dom.php';
 
-function kiblat_news(){
+// function kiblat_news(){
     // header('Content-type: application/json');
     $property = 'data-original';
     $html = file_get_html('https://www.kiblat.net/news/nasional/');
@@ -12,20 +12,22 @@ function kiblat_news(){
     $gambar  = $html->find('div.js-ajax-wrap img');
     $isi     = $html->find('div.js-ajax-wrap p.excerpt');
     $waktu   = $html->find('div.js-ajax-wrap span.time');
-
-    for ($i=0; $i < 15; $i++) { 
+    $posting['result'] = 'sukses';
+    // for ($i=0; $i < 15; $i++) { 
         
-        $posting = array(
-                "title" => $title[$i]->plaintext,
-                "link"  => $link[$i]->href,
-                "gambar" => $gambar[$i]->$property,
-                "isi"    => $isi[$i]->plaintext,
-                "waktu"  => $waktu[$i]->plaintext    
-        );
+    //     $posting = array(
+    //             "title" => $title[$i]->plaintext,
+    //             "link"  => $link[$i]->href,
+    //             "gambar" => $gambar[$i]->$property,
+    //             "isi"    => $isi[$i]->plaintext,
+    //             "waktu"  => $waktu[$i]->plaintext    
+            
+    //     );
 
-        $data = json_encode($posting);
-        return $posting;
-        // print_r($posting);
+    //     $data = json_encode($posting);
+    //     echo $posting["title"];
+    //     // return $posting;
+    //     // print_r($posting);
 
-    }
-}
+    // }
+// }
