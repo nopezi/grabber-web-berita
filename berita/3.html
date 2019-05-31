@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- <form onsubmit="return false">
+                    <textarea type="text" id="input_form" cols="30" rows="10"></textarea> -->
+                    <form onsubmit="return false">
+                            <label>Masukkan textnya : </label>
+                            <!-- <input type="text" id="input_form" value="90"/> -->
+                            <textarea type="text" id="input_form" value="90" cols="30" rows="10"></textarea>
+                            <button class="btn btn-success" id="tombol_form">Tampilkan Nilai</button>
+                          </form>
+                    
+            </div>
+            <div class="col-md-3">
+                    <!-- <button class="btn btn-success">Suara</button>
+                </form>    -->
+            </div>
+            <div class="col-md-3">
+                    <input class="btn btn-info" onclick="responsiveVoice.speak('Hello World');" type="button" value="Play random" />
+            </div>
+            <div class="col-md-3">
+                    <h2>Text nya: <span id="hasil"></span></h2>
+            </div>
+        </div>
+    </div>
+<!-- <script src="js/inputdata.js"></script> -->
+<script type="text/javascript">
+        // document.getElementById("tombol_p").
+        // addEventListener("click", tampilkan_nilai_p);
+         
+        document.getElementById("tombol_form").
+        addEventListener("click", tampilkan_nilai_form);
+         
+        function tampilkan_nilai_p() {
+            var nilai_andika=document.getElementById("nilai_andika").innerHTML;
+            var nilai_joko=document.getElementById("nilai_joko").innerHTML;
+            document.getElementById("hasil").innerHTML=
+            nilai_andika+" dan "+nilai_joko;
+        }
+         
+        function tampilkan_nilai_form(){
+            var nilai_form1=document.getElementById("input_form").value;
+            var nilai_form1 = nilai_form1.replace('makan yuk', '1');
+            var nilai_form1 = nilai_form1.replace('kamu siapa', '2');
+            console.log(nilai_form1);
+            if(nilai_form1==1){
+                nilai_form = "lagi puasa om";
+            }else if(nilai_form1==2){
+                nilai_form = "kepo deh";
+            }else{
+                var nilai_form=document.getElementById("input_form").value; 
+            }
+            document.getElementById("hasil").innerHTML=nilai_form;
+            var tulisan2 = document.getElementById("hasil").innerHTML;
+            responsiveVoice.speak(tulisan2, "Indonesian Female", {rate: 1.0});
+        }
+        
+        </script>
+</body>
+</html>

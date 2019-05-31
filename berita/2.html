@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<title>Tutorial Belajar JavaScript</title>
+
+
+</head>
+ 
+<body>
+<!-- <h3>Contoh 1: Mengambil nilai tag span</h3>
+  <p>Nama: Andika Siswoyo, Nilai: <span id="nilai_andika">80</span>
+  <br />Nama: Joko Susilo, Nilai: <span id="nilai_joko">92</span></p>
+<button id="tombol_p">Tampilkan Nilai</button> -->
+
+ 
+<!-- <h3>Contoh 2: Mengambil nilai tag input</h3> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col">Lorem ipsum dolor sit amet consectetur.</div>
+        <div class="col">Lorem, ipsum dolor.</div>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="row">
+
+                <div class="col-md-4">
+                        <form onsubmit="return false">
+                                <label>Masukkan textnya : </label>
+                                <!-- <input type="text" id="input_form" value="90"/> -->
+                                <textarea type="text" id="input_form" value="90" cols="30" rows="10"></textarea>
+                                <button class="btn btn-success" id="tombol_form">Tampilkan Nilai</button>
+                              </form>
+                </div>
+                <div class="col-md-3">
+                        Atau
+                        <input class="btn btn-info" onclick="responsiveVoice.speak('Hello World');" type="button" value="Play random" />
+                </div>
+
+                <div class="col-md-3">
+                        <h2>Text nya: <span id="hasil"></span></h2>
+                </div>
+
+        </div>
+    </div>
+ 
+
+ 
+<script>
+// document.getElementById("tombol_p").
+// addEventListener("click", tampilkan_nilai_p);
+ 
+document.getElementById("tombol_form").
+addEventListener("click", tampilkan_nilai_form);
+ 
+function tampilkan_nilai_p() {
+    var nilai_andika=document.getElementById("nilai_andika").innerHTML;
+    var nilai_joko=document.getElementById("nilai_joko").innerHTML;
+    document.getElementById("hasil").innerHTML=
+    nilai_andika+" dan "+nilai_joko;
+}
+ 
+function tampilkan_nilai_form(){
+    var nilai_form=document.getElementById("input_form").value;
+    document.getElementById("hasil").innerHTML=nilai_form;
+    var tulisan2 = document.getElementById("hasil").innerHTML;
+    responsiveVoice.speak(tulisan2, "Indonesian Female", {rate: 1.0});
+}
+
+</script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
